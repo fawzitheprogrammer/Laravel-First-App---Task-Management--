@@ -60,11 +60,10 @@ class UserController extends Controller
    }
 
 
-   public function profile(User $username){
+   public function profile(User $user){
  
-    $post = Post::where('user_id',$username)->get();
     $postCount = Post::count();
 
-    return $post;
+    return view('profile-posts', ['username' => $user->username, 'posts' => $user->posts()->latest()->get(), 'postCount' => $user->posts()->count()]);;
 }
 }
