@@ -34,4 +34,5 @@ Route::post('/show-header',[UserController::class,'showHeader']);
 Route::get('/create-post',[PostController::class,'showCreateForm'])->middleware('must.be.logged.in');
 Route::post('/create-post',[PostController::class,'storeNewPost'])->middleware('must.be.logged.in');;
 Route::get('/post/{post}',[PostController::class,'showSinglePost'])->middleware('must.be.logged.in');;
-Route::get('/profile/{id:username}',[UserController::class,'profile'])->middleware('must.be.logged.in');;
+// Profile related routes
+Route::get('/profile/{user:username}', [UserController::class, 'profile']);
